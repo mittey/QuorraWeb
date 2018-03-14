@@ -9,6 +9,9 @@ namespace QuorraWeb.Models
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<EmailSender>().As<IEmailSender>().InstancePerLifetimeScope();
+            builder.RegisterType<UpdateService>().As<IUpdateService>().InstancePerLifetimeScope();
+            builder.RegisterType<HubService>().As<IHubService>().InstancePerLifetimeScope();
+            builder.RegisterType<BotService>().As<IBotService>().InstancePerLifetimeScope();
 
             base.Load(builder);
         }

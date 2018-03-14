@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QuorraWeb.Data;
 using QuorraWeb.Models;
+using QuorraWeb.Models.Configs;
 
 namespace QuorraWeb
 {
@@ -28,6 +29,11 @@ namespace QuorraWeb
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            //Bot configuration
+            services.Configure<BotConfiguration>(Configuration);
+            //LUIS configuration
+            services.Configure<LuisConfiguration>(Configuration);
 
             services.AddMvc();
         }
