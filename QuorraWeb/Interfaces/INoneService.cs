@@ -3,8 +3,8 @@ using Telegram.Bot.Types;
 
 namespace QuorraWeb.Interfaces
 {
-    public interface IUserService
+    public interface INoneService
     {
-        Task HandleUserAsync(Message message);
+        Task HandleNoneAsync(Message message);
     }
 }

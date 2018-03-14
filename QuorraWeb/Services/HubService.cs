@@ -7,32 +7,38 @@ namespace QuorraWeb.Services
 {
     public class HubService : IHubService
     {
-        public HubService()
-        {
+        private readonly IUserService _userService;
+        private readonly INoneService _noneService;
 
+        public HubService(IUserService userService, INoneService noneService)
+        {
+            _userService = userService;
+            _noneService = noneService;
         }
 
         public async Task HandleMessageAsync(Message message)
         {
-            if (message.Type == MessageType.TextMessage)
-            {
-                await HandleTextMessageAsync(message);
-            }
+            await _userService.HandleUserAsync(message);
 
-            if (message.Type == MessageType.VoiceMessage)
+            switch (message.Type)
             {
-                await HandleVoiceMessageAsync(message);
+                case MessageType.TextMessage:
+                    await HandleTextMessageAsync(message);
+                    break;
+                case MessageType.VoiceMessage:
+                    await HandleVoiceMessageAsync(message);
+                    break;
             }
         }
 
         private async Task HandleTextMessageAsync(Message message)
         {
-            throw new System.NotImplementedException();
+            await _noneService.HandleNoneAsync(message);
         }
 
         private async Task HandleVoiceMessageAsync(Message message)
         {
-            throw new System.NotImplementedException();
+            await _noneService.HandleNoneAsync(message);
         }
     }
 }

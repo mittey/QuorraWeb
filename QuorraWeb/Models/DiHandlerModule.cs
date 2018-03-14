@@ -13,6 +13,7 @@ namespace QuorraWeb.Models
             builder.RegisterType<HubService>().As<IHubService>().InstancePerLifetimeScope();
             builder.RegisterType<BotService>().As<IBotService>().InstancePerLifetimeScope();
             builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
+            builder.RegisterType<NoneService>().As<INoneService>().InstancePerLifetimeScope();
 
             base.Load(builder);
         }
