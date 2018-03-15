@@ -9,11 +9,15 @@ namespace QuorraWeb.Services
     {
         private readonly IUserService _userService;
         private readonly INoneService _noneService;
+        private readonly ILuisService _luisService;
+        private readonly IJokeService _jokeService;
 
-        public HubService(IUserService userService, INoneService noneService)
+        public HubService(IUserService userService, INoneService noneService, ILuisService luisService, IJokeService jokeService)
         {
             _userService = userService;
             _noneService = noneService;
+            _luisService = luisService;
+            _jokeService = jokeService;
         }
 
         public async Task HandleMessageAsync(Message message)
@@ -33,7 +37,20 @@ namespace QuorraWeb.Services
 
         private async Task HandleTextMessageAsync(Message message)
         {
-            await _noneService.HandleNoneAsync(message);
+            var luisData = await _luisService.GetAllDataAsync(message.Text);
+
+            switch (luisData.TopScoringIntent.Intent)
+            {
+                case "Joke.Show":
+                    await _jokeService.HandleJokeAsync(message);
+                    break;
+                case "None":
+                    await _noneService.HandleNoneAsync(message);
+                    break;
+                default:
+                    await _noneService.HandleNoneAsync(message);
+                    break;
+            }
         }
 
         private async Task HandleVoiceMessageAsync(Message message)
