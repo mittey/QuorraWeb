@@ -8,6 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using QuorraWeb.Data;
 using QuorraWeb.Models;
 using QuorraWeb.Models.Configs;
+using System.IO;
+using Microsoft.Extensions.FileProviders;
 
 namespace QuorraWeb
 {
@@ -66,6 +68,14 @@ namespace QuorraWeb
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            //Add support of the node_modules folder
+            app.UseFileServer(new FileServerOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "node_modules")),
+                RequestPath = "/node_modules",
+                EnableDirectoryBrowsing = false
             });
         }
     }
