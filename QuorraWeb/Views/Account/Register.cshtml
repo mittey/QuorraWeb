@@ -1,32 +1,51 @@
 ﻿@model RegisterViewModel
+
 @{
-    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    ViewData["Title"] = "Sign Up";
 }
 
-<h2>@ViewData["Title"]</h2>
+<!-- Sign Up -->
+<div class="login__block active" id="l-register">
+    <div class="login__block__header">
+        <i class="zmdi zmdi-account-circle"></i>
+        Create an account
 
-<div class="row">
-    <div class="col-md-4">
+        <div class="actions actions--inverse login__block__actions">
+            <div class="dropdown">
+                <i data-toggle="dropdown" class="zmdi zmdi-more-vert actions__item"></i>
+
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" class="dropdown-item" data-ma-target="#l-register">Sign in</a>
+                    <a asp-action="ForgotPassword" class="dropdown-item" data-ma-target="#l-forget-password">Forgot password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="login__block__body">
         <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
-            <h4>Create a new account.</h4>
-            <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
+
+            <div class="form-group form-group--float form-group--centered">
+                <input asp-for="Email" class="form-control">
                 <label asp-for="Email"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <i class="form-group__bar"></i>
             </div>
-            <div class="form-group">
+
+            <div class="form-group form-group--float form-group--centered">
+                <input asp-for="Password" class="form-control">
                 <label asp-for="Password"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <i class="form-group__bar"></i>
             </div>
-            <div class="form-group">
+
+            <div class="form-group form-group--float form-group--centered">
+                <input asp-for="ConfirmPassword" class="form-control">
                 <label asp-for="ConfirmPassword"></label>
-                <input asp-for="ConfirmPassword" class="form-control" />
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                <i class="form-group__bar"></i>
             </div>
-            <button type="submit" class="btn btn-default">Register</button>
+
+            <button type="submit" class="btn btn--icon login__block__btn"><i class="zmdi zmdi-long-arrow-right"></i></button>
         </form>
     </div>
 </div>

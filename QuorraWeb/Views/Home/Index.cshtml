@@ -1,3 +1,155 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+
+<div class="row quick-stats">
+    <div class="col-sm-6 col-md-3">
+        <div class="quick-stats__item bg-blue">
+            <div class="quick-stats__info">
+                <h2>987,459</h2>
+                <small>Total Website Traffics</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-3">
+        <div class="quick-stats__item bg-amber">
+            <div class="quick-stats__info">
+                <h2>356,785K</h2>
+                <small>Total Website Impressions</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-3">
+        <div class="quick-stats__item bg-purple">
+            <div class="quick-stats__info">
+                <h2>$58,778</h2>
+                <small>Total Online Sales</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-3">
+        <div class="quick-stats__item bg-red">
+            <div class="quick-stats__info">
+                <h2>214</h2>
+                <small>Total Support Tickets</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <div class="card widget-calendar">
+            <div class="widget-calendar__header">
+                <div class="widget-calendar__year"></div>
+                <div class="widget-calendar__day"></div>
+            </div>
+
+            <div class="widget-calendar__body"></div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <img class="card-img-top" src="~/img/img1.png" alt="">
+            <div class="card-body">
+                <h4 class="card-title">Pellentesque Ligula Fringilla</h4>
+                <h6 class="card-subtitle">by Malinda Hollaway on 19th June 2015 at 09:10 AM</h6>
+
+                <p>Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper. Nulla vitae elit libero, a pharetra.</p>
+                <a href="" class="view-more text-left">View Article...</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Recent Posts</h4>
+                <h6 class="card-subtitle">Venenatis portauam Inceptos ameteiam</h6>
+            </div>
+
+            <div class="listview listview--hover">
+                <a class="listview__item">
+                    <img src="~/img/profile-pics/1.jpg" class="listview__img" alt="">
+
+                    <div class="listview__content">
+                        <div class="listview__heading">Jeannette Lawson</div>
+                        <p>Donec congue tempus ligula, varius hendrerit mi hendrerit sit amet. Duis ac quam sit amet leo feugiat iaculis</p>
+                    </div>
+                </a>
+
+                <a class="listview__item">
+                    <img src="~/img/profile-pics/2.jpg" class="listview__img" alt="">
+
+                    <div class="listview__content">
+                        <div class="listview__heading">David Villa Jacobs</div>
+                        <p>Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis lobortis sapien non posuere</p>
+                    </div>
+                </a>
+
+                <a class="listview__item">
+                    <img src="~/img/profile-pics/3.jpg" class="listview__img" alt="">
+
+                    <div class="listview__content">
+                        <div class="listview__heading">Candice Barnes</div>
+                        <p>Quisque non tortor ultricies, posuere elit id, lacinia purus curabitur</p>
+                    </div>
+                </a>
+
+                <a class="listview__item">
+                    <img src="~/img/profile-pics/4.jpg" class="listview__img" alt="">
+
+                    <div class="listview__content">
+                        <div class="listview__heading">Darla Mckinney</div>
+                        <p>Duis tincidunt augue nec sem dignissim scelerisque. Vestibulum rhoncus sapien sed nulla aliquam lacinia</p>
+                    </div>
+                </a>
+
+                <a class="listview__item">
+                    <img src="~/img/profile-pics/5.jpg" class="listview__img" alt="">
+
+                    <div class="listview__content">
+                        <div class="listview__heading">Rudolph Perez</div>
+                        <p>Phasellus a ullamcorper lectus, sit amet viverra quam. In luctus tortor vel nulla pharetra bibendum</p>
+                    </div>
+                </a>
+
+                <a href="" class="view-more">View All Posts</a>
+            </div>
+        </div>
+
+        <div class="card card--inverse widget-signups">
+            <div class="card-body">
+                <h4 class="card-title">Most Recent Signups</h4>
+                <h6 class="card-subtitle">Magna cursus malesuada lacinia</h6>
+
+                <div class="actions actions--inverse">
+                    <div class="actions__item">
+                        <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="" class="dropdown-item">Refresh</a>
+                            <a href="" class="dropdown-item">Manage Widgets</a>
+                            <a href="" class="dropdown-item">Settings</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget-signups__list">
+                    <a data-toggle="tooltip" title="" href="" data-original-title="John Doe"><img class="avatar-img" src="~/img/profile-pics/1.jpg" alt=""></a>
+                    <a data-toggle="tooltip" title="" href="" data-original-title="Deanne Jeffreys"><div class="avatar-char">D</div></a>
+                    <a data-toggle="tooltip" title="" href="" data-original-title="John Doe"><img class="avatar-img" src="~/img/profile-pics/2.jpg" alt=""></a>
+                    <a data-toggle="tooltip" title="" href="" data-original-title="John Doe"><img class="avatar-img" src="~/img/profile-pics/3.jpg" alt=""></a>
+                    <a data-toggle="tooltip" title="" href="" data-original-title="John Doe"><img class="avatar-img" src="~/img/profile-pics/4.jpg" alt=""></a>
+                    <a data-toggle="tooltip" title="" href="" data-original-title="Deanne Jeffreys"><div class="avatar-char">A</div></a>
+                    <a data-toggle="tooltip" title="" href="" data-original-title="John Doe"><img class="avatar-img" src="~/img/profile-pics/5.jpg" alt=""></a>
+                    <a data-toggle="tooltip" title="" href="" data-original-title="John Doe"><img class="avatar-img" src="~/img/profile-pics/6.jpg" alt=""></a>
+                    <a data-toggle="tooltip" title="" href="" data-original-title="John Doe"><img class="avatar-img" src="~/img/profile-pics/7.jpg" alt=""></a>
+                    <a data-toggle="tooltip" title="" href="" data-original-title="John Doe"><img class="avatar-img" src="~/img/profile-pics/8.jpg" alt=""></a>
+                    <a data-toggle="tooltip" title="" href="" data-original-title="Deanne Jeffreys"><div class="avatar-char">S</div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
