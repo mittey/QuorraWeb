@@ -1,0 +1,43 @@
+﻿@model TelegramViewModel
+
+@{
+    ViewData["Title"] = "Telegram";
+    ViewData.AddActivePage(ManageNavPages.Telegram);
+}
+
+<div class="row">
+    <div class="col-12">
+        @Html.Partial("_StatusMessage", Model.StatusMessage)
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">@ViewData["Title"]</h4>
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label asp-for="TelegramUsername"></label>
+                        <input asp-for="TelegramUsername" class="form-control">
+                        <i class="form-group__bar"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row text-right">
+                <div class="col-12">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn--icon-text"><i class="zmdi zmdi-save"></i> Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
