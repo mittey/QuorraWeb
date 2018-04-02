@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using QuorraWeb.Data;
 using QuorraWeb.Interfaces;
+using QuorraWeb.Models;
 using QuorraWeb.Models.Enums;
 using Telegram.Bot.Types;
 
@@ -24,6 +25,19 @@ namespace QuorraWeb.Services
             {
                 await _botService.TelegramBotClient.SendTextMessageAsync(message.Chat.Id, $"{message.Chat.Username}, my apologies, but I don't believe we've met. Before we proceed further, please contact someone from Sopra Steria Saint Petersburg. Thank you.");
             }
+        }
+
+        public async Task<ApplicationUser> SaveTelegramUsernameAsync(string telegramUsername, string userId)
+        {
+            var userEntity = await _context.Users.SingleOrDefaultAsync(m => m.Id == userId);
+
+            userEntity.TelegramUsername = telegramUsername;
+
+            _context.Users.Update(userEntity);
+
+            await _context.SaveChangesAsync();
+
+            return userEntity;
         }
 
         private async Task<bool> UserExistsAsync(string telegramUsername)
