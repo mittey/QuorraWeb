@@ -28,7 +28,16 @@ namespace QuorraWeb
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>(config =>
+                {
+                    config.SignIn.RequireConfirmedEmail = false;
+
+                    config.Password.RequireDigit           = false;
+                    config.Password.RequireLowercase       = false;
+                    config.Password.RequireUppercase       = false;
+                    config.Password.RequireNonAlphanumeric = false;
+                    config.Password.RequiredLength         = 6;
+                })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
