@@ -17,6 +17,7 @@ namespace QuorraWeb.Models
             builder.RegisterType<LuisService>().As<ILuisService>().InstancePerLifetimeScope();
             builder.RegisterType<JokeService>().As<IJokeService>().InstancePerLifetimeScope();
             builder.RegisterType<MemeService>().As<IMemeService>().InstancePerLifetimeScope();
+            builder.RegisterType<MusicService>().As<IMusicService>().InstancePerLifetimeScope();
 
             base.Load(builder);
         }
